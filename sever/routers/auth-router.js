@@ -17,7 +17,7 @@ const {home, registration} =require("../controllers/auth-controller");
 // });
 
 router.route("/").get(home);
-router.route("/registration").get(registration);
+router.route("/registration").post(registration);
 
 
 module.exports=router;

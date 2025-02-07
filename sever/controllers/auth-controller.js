@@ -9,7 +9,10 @@ const home =async(req,res)=>{
 const registration =async(req,res)=>{
     try{
         res.status(200)
-        .send("Welcome to my registration page using controllers");
+        // .send("Welcome to my registration page using controllers");
+        .json({msg:req.body});
+        console.log(req.body)
+
     } catch (error){
         console.log(error);
     }
