@@ -16,8 +16,12 @@ const registration =async(req,res)=>{
         if(userExists){
             return res.status(400).json({error:"Email already exists"});
         }else{
-            user.create({username,email,phone,password});
-            res.status(200).json({msg:"User registered successfully"});
+            const UserData=await user.create({username,email,phone,password});
+            res.status(200).json({
+                msg:"User registered successfully",
+                token:await UserData.generateToken()
+            });
+
         }
 
 

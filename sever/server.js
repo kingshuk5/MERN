@@ -5,7 +5,7 @@ const cors = require("cors");
 const router =require("./routers/auth-router");
 
 const app= express();
-app.use(cors())
+app.use(cors());
 
 
 const connectDB=require("./utils/db");
