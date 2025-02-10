@@ -5,7 +5,11 @@ const cors = require("cors");
 const router =require("./routers/auth-router");
 
 const app= express();
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:3000",
+    methods:["GET","POST","PUT","DELETE"],
+    credentials: true,
+}));
 
 
 const connectDB=require("./utils/db");
