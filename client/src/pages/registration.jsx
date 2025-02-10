@@ -13,7 +13,7 @@ export const Registration = () => {
       })
       const handleSubmit = async (e) => {
           e.preventDefault();
-          const {email, password}= user;
+          const {email,phone, password}= user;
           if(!email||!password) {
               toast.error("Fill all the fields!", {position: "top-center"});
               return;
@@ -22,6 +22,10 @@ export const Registration = () => {
               toast.error("Password must be 8 characters long!", {position: "top-center"});
               return;
           }
+          if(phone.length !== 10) {
+            toast.error("Phone Number must be 10 characters long!", {position: "top-center"});
+            return;
+        }
           // toast.success("Registration Successful!", {position: "top-center"});
           try {
             const response = await fetch('http://localhost:5000/api/auth/registration', {
